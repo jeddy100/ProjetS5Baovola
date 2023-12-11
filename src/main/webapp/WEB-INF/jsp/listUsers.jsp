@@ -29,6 +29,7 @@
         <tr>
             <td><% out.print(liste.get(i).getNom());%></td>
             <td><% out.print(liste.get(i).getPrenom());%></td>
+            <td>  <a href="deleteUser/<%=liste.get(i).getId()%>">delete</a></td>
         </tr>
         <% }%>
     </table>

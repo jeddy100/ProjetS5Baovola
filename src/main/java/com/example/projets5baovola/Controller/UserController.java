@@ -5,9 +5,7 @@ import com.example.projets5baovola.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
@@ -42,6 +40,15 @@ public class UserController {
     @GetMapping("/insertUser")
     public String home(){
         return "insertUser";
+    }
+
+    @GetMapping("/deleteUser/{id}")
+    public RedirectView deleteUser(@PathVariable Long id, Model model){
+        userRepository.deleteById(id);
+        final RedirectView redirectView = new RedirectView("/listUsers", true);
+
+        return redirectView;
+
     }
 
 }
