@@ -5,6 +5,8 @@
   Time: 17:21
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:include page="template/header.jsp" />
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,6 +19,8 @@
     <input type="text" name="prenom" placeholder="prenom">
     <input type="submit" value="valider">
 </form>
+<jsp:include page="template/footer.jsp" />
+
 
 </body>
 </html>

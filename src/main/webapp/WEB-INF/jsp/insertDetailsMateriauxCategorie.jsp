@@ -1,39 +1,60 @@
 <%@ page import="com.example.projets5baovola.model.Categorie" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.projets5baovola.model.Materiaux" %><%--
+<%@ page import="com.example.projets5baovola.model.Materiaux" %>
+<%@ page import="com.example.projets5baovola.model.Volume" %><%--
   Created by IntelliJ IDEA.
   User: Jeddy
   Date: 12/12/2023
   Time: 16:07
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:include page="template/header.jsp" />
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+   List<Volume> listvolume= (List<Volume>) request.getAttribute("listvolume");
     List<Categorie> liste= (List<Categorie>) request.getAttribute("listCategorie");
     List<Materiaux> listemateriaux=((List<Materiaux>) request.getAttribute("listMateriaux"));
 %>
 <html>
 <head>
     <title>Title</title>
+    <div class="col-md-12  grid-margin stretch-card ">
+        <div class="card">
+            <div class="card-body">
     <form action="/detailsmateriauxcategoriepost" method="post" >
         <p>selectionner categorie:</p>
-        <select>
+        <select name="categorie">
             <% for (int i = 0; i < liste.size(); i++) { %>
-            <option name="categorie" value="<%=liste.get(i) %>"><%= liste.get(i).getNom()%></option>
+            <option  value="<%=liste.get(i).getId() %>"><%= liste.get(i).getNom()%></option>
             <% } %>
         </select>
         <p>selectionner materiaux:</p>
 
-        <select>
+        <select name="materiaux">
             <% for (int i = 0; i < listemateriaux.size(); i++) { %>
-            <option name="materiaux" value="<%=listemateriaux.get(i) %>"><%= listemateriaux.get(i).getNom()%></option>
+            <option  value="<%=listemateriaux.get(i).getId() %>"><%= listemateriaux.get(i).getNom()%></option>
             <% } %>
         </select>
+        <p>selectionner un volume:</p>
+
+        <% if (listvolume != null) { %>
+        <select name="volume">
+            <% for (int i = 0; i < listvolume.size(); i++) { %>
+            <option  value="<%=listvolume.get(i).getId() %>"><%= listvolume.get(i).getNomVolume()%></option>
+            <% } %>
+        </select>
+        <%} %>
         <input type="number" name="quantiteMateriaux" placeholder="quantite">
 
 
         <input type="submit" value="valider">
     </form>
+            </div>
+        </div>
+    </div>
+    <jsp:include page="template/footer.jsp" />
+
 </head>
 <body>
 

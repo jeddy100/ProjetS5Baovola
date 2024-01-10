@@ -16,6 +16,33 @@ public class DetailsMateriauxCategorie {
     @JoinColumn(name = "id_categorie")
     private Categorie categorie;
 
+    @ManyToOne
+    @JoinColumn(name = "id_volume")
+    private Volume volume;
+
+    public Volume getVolume() {
+        return volume;
+    }
+
+    public void setVolume(Volume volume) {
+        this.volume = volume;
+    }
+
+    public DetailsMateriauxCategorie(Long id, Materiaux materiaux, Categorie categorie, Volume volume, double quantiteMateriaux) {
+        this.id = id;
+        this.materiaux = materiaux;
+        this.categorie = categorie;
+        this.volume = volume;
+        this.quantiteMateriaux = quantiteMateriaux;
+    }
+
+    public DetailsMateriauxCategorie(Materiaux materiaux, Categorie categorie, Volume volume, double quantiteMateriaux) {
+        this.materiaux = materiaux;
+        this.categorie = categorie;
+        this.volume = volume;
+        this.quantiteMateriaux = quantiteMateriaux;
+    }
+
     private double quantiteMateriaux;
 
     public Long getId() {

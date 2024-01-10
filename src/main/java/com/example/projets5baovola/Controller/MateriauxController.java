@@ -27,7 +27,7 @@ public class MateriauxController {
 
         // on definit ici ou on va rediriger la fonction
         // ici exemple on le redirige vers le controller @GetMapping("/listUsers")
-        final RedirectView redirectView = new RedirectView("/listUsers", true);
+        final RedirectView redirectView = new RedirectView("/listMeuble", true);
 
         // et c est la qu on fait le traitement
         materiauxRepository.save(materiaux);
