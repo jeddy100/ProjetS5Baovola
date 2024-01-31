@@ -24,36 +24,49 @@
         <div class="card">
             <div class="card-body">
                 <h1>Inserer un meuble</h1>
-    <form action="/meublepost" method="post" >
-        <p>selectionner categorie:</p>
-        <select name="categorie">
-            <% for (int i = 0; i < liste.size(); i++) { %>
-            <option  value="<%=liste.get(i).getId() %>"><%= liste.get(i).getNom()%></option>
-            <% } %>
-        </select>
-        <p>selectionner Style:</p>
-
-        <select name="style">
-            <% for (int i = 0; i < listeStyle.size(); i++) { %>
-            <option  value="<%=listeStyle.get(i).getId() %>"><%= listeStyle.get(i).getNom()%></option>
-            <% } %>
-        </select>
-        <p>selectionner un volume:</p>
-
-        <% if (listvolume != null) { %>
-        <select name="volume">
-            <% for (int i = 0; i < listvolume.size(); i++) { %>
-            <option  value="<%=listvolume.get(i).getId() %>"><%= listvolume.get(i).getNomVolume()%></option>
-            <% } %>
-        </select>
-        <%} %>
-        <input type="text" name="nom" placeholder="nom du meuble">
-
-        <input type="number" name="prix_vente" placeholder="prix">
-
-
-        <input type="submit" value="valider">
-    </form>
+                <div class="container">
+                    <form action="/meublepost" method="post">
+                        <div class="form-group">
+                            <label for="categorie">Sélectionner une catégorie:</label>
+                            <select class="form-control" name="categorie" id="categorie">
+                                <% for (int i = 0; i < liste.size(); i++) { %>
+                                <option value="<%= liste.get(i).getId() %>"><%= liste.get(i).getNom() %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="style">Sélectionner un style:</label>
+                            <select class="form-control" name="style" id="style">
+                                <% for (int i = 0; i < listeStyle.size(); i++) { %>
+                                <option value="<%= listeStyle.get(i).getId() %>"><%= listeStyle.get(i).getNom() %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <% if (listvolume != null) { %>
+                        <div class="form-group">
+                            <label for="volume">Sélectionner un volume:</label>
+                            <select class="form-control" name="volume" id="volume">
+                                <% for (int i = 0; i < listvolume.size(); i++) { %>
+                                <option value="<%= listvolume.get(i).getId() %>"><%= listvolume.get(i).getNomVolume() %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <% } %>
+                        <div class="form-group">
+                            <label for="nom">Nom du meuble:</label>
+                            <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom du meuble">
+                        </div>
+                        <div class="form-group">
+                            <label for="prix_vente">Prix de vente:</label>
+                            <input type="number" class="form-control" name="prix_vente" id="prix_vente" placeholder="Prix de vente">
+                        </div>
+                        <div class="form-group">
+                            <label for="tempsConfection">Temps de confection (en heures):</label>
+                            <input type="text" class="form-control" name="tempsConfection" id="tempsConfection" placeholder="Temps de confection">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@
 <div class="col-md-12  grid-margin stretch-card ">
     <div class="card">
         <div class="card-body">
-            <H1>Liste des Meubles</H1>
+            <H1>Liste des Meubles par rapport au benefice</H1>
             <h2>size: <% out.print(liste.size()); %></h2>
             <div class="container">
                 <table class="table table-striped">
