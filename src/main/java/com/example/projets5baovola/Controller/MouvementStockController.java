@@ -2,10 +2,8 @@ package com.example.projets5baovola.Controller;
 
 import com.example.projets5baovola.model.Materiaux;
 import com.example.projets5baovola.model.MouvementStock;
-import com.example.projets5baovola.model.Stock;
 import com.example.projets5baovola.repository.MateriauxRepository;
 import com.example.projets5baovola.repository.MouvementStockRepository;
-import com.example.projets5baovola.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -72,6 +70,13 @@ public class MouvementStockController {
         model.addAttribute("materiauxList", materiauxList);
         model.addAttribute("listenbmateriaux", listenbmateriaux);
         return "listStocks";
+    }
+
+
+    @GetMapping("/insertStock")
+    public String jose(Model model){
+        model.addAttribute("listMateriaux", materiauxRepository.findAll());
+        return "insertStock";
     }
 
 

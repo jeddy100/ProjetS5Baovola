@@ -31,8 +31,6 @@ public class MeubleController {
     @Autowired
     private MateriauxRepository materiauxRepository;
     @Autowired
-    private StockRepository stockRepository;
-    @Autowired
     OuvrierMeubleRepository ouvrierMeubleRepository;
     @Autowired
     private MouvementStockRepository mouvementStockRepository;
